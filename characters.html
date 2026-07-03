@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raid Shadow Legends - Character Database</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #ecf0f1;
+            line-height: 1.6;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 3px solid #e74c3c;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #e74c3c;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            color: #bdc3c7;
+            font-size: 1.1rem;
+        }
+
+        .f2p-badge {
+            display: inline-block;
+            background: #27ae60;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            font-weight: bold;
+        }
+
+        nav {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #ecf0f1;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            background: #e74c3c;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .filters {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(231, 76, 60, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .filter-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .filter-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .filter-group select,
+        .filter-group input {
+            width: 100%;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid #e74c3c;
+            color: #ecf0f1;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+
+        .filter-group select:focus,
+        .filter-group input:focus {
+            outline: none;
+            background: rgba(231, 76, 60, 0.2);
+            box-shadow: 0 0 8px rgba(231, 76, 60, 0.5);
+        }
+
+        .search-section {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid #e74c3c;
+            color: #ecf0f1;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .search-input::placeholder {
+            color: #7f8c8d;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .characters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .character-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid #e74c3c;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+        }
+
+        .character-card:hover {
+            transform: translateY(-8px);
+            background: rgba(231, 76, 60, 0.15);
+            box-shadow: 0 12px 24px rgba(231, 76, 60, 0.4);
+            border-color: #f39c12;
+        }
+
+        .character-header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            padding: 1.5rem;
+            border-bottom: 2px solid #e74c3c;
+        }
+
+        .character-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #f39c12;
+            margin-bottom: 0.5rem;
+        }
+
+        .character-meta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.5rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: rgba(231, 76, 60, 0.3);
+            border: 1px solid #e74c3c;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .badge.f2p {
+            background: rgba(39, 174, 96, 0.3);
+            border-color: #27ae60;
+            color: #27ae60;
+        }
+
+        .badge.rare {
+            background: rgba(155, 89, 182, 0.3);
+            border-color: #9b59b6;
+            color: #bb86fc;
+        }
+
+        .badge.uncommon {
+            background: rgba(52, 152, 219, 0.3);
+            border-color: #3498db;
+            color: #64b5f6;
+        }
+
+        .character-content {
+            padding: 1.5rem;
+        }
+
+        .character-description {
+            color: #bdc3c7;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .stat {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.7rem;
+            border-radius: 4px;
+            text-align: center;
+            border-left: 3px solid #e74c3c;
+        }
+
+        .stat-label {
+            color: #95a5a6;
+            font-size: 0.8rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .stat-value {
+            color: #f39c12;
+            font-weight: bold;
+        }
+
+        .builds-section {
+            margin-bottom: 1rem;
+        }
+
+        .builds-section h4 {
+            color: #e74c3c;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .build-tab {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.5rem;
+        }
+
+        .build-btn {
+            padding: 0.3rem 0.7rem;
+            background: rgba(231, 76, 60, 0.2);
+            border: 1px solid #e74c3c;
+            color: #ecf0f1;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .build-btn.active {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .build-btn:hover {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .build-details {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.8rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .build-detail-item {
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .build-detail-label {
+            color: #95a5a6;
+            font-weight: bold;
+        }
+
+        .build-detail-value {
+            color: #27ae60;
+        }
+
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .pros, .cons {
+            font-size: 0.9rem;
+        }
+
+        .pros h5, .cons h5 {
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .pros h5 {
+            color: #27ae60;
+        }
+
+        .cons h5 {
+            color: #e74c3c;
+        }
+
+        .pros ul, .cons ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .pros li:before {
+            content: "✓ ";
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .cons li:before {
+            content: "✗ ";
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .pros li, .cons li {
+            margin-bottom: 0.3rem;
+            color: #bdc3c7;
+        }
+
+        .game-modes-section {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid rgba(231, 76, 60, 0.3);
+            margin-bottom: 2rem;
+        }
+
+        .game-modes-section h2 {
+            color: #e74c3c;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .modes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .mode-card {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+        }
+
+        .mode-card h3 {
+            color: #f39c12;
+            margin-bottom: 0.8rem;
+        }
+
+        .mode-card p {
+            color: #bdc3c7;
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+        }
+
+        .viability {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .viability-bar {
+            flex: 1;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .viability-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #27ae60, #f39c12, #e74c3c);
+        }
+
+        .tips-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .tips-list li {
+            padding: 0.3rem 0;
+            color: #bdc3c7;
+            margin-left: 1rem;
+        }
+
+        .tips-list li:before {
+            content: "→ ";
+            color: #e74c3c;
+            font-weight: bold;
+            margin-left: -1rem;
+            margin-right: 0.5rem;
+        }
+
+        .progression-section {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid rgba(39, 174, 96, 0.3);
+            margin-bottom: 2rem;
+        }
+
+        .progression-section h2 {
+            color: #27ae60;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .timeline-item {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1rem;
+            border-radius: 6px;
+            border-left: 4px solid #27ae60;
+        }
+
+        .timeline-item h4 {
+            color: #f39c12;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item p {
+            color: #bdc3c7;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .results-count {
+            color: #bdc3c7;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.9);
+            text-align: center;
+            padding: 1.5rem;
+            border-top: 3px solid #e74c3c;
+            color: #95a5a6;
+        }
+
+        footer a {
+            color: #e74c3c;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .characters-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-group {
+                grid-template-columns: 1fr;
+            }
+
+            .pros-cons {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .modes-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 3rem;
+            color: #95a5a6;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>⚔️ Raid Shadow Legends Guide ⚔️</h1>
+        <p>Complete F2P Character Database & Strategies</p>
+        <div class="f2p-badge">🎮 100% Free-to-Play Focused</div>
+    </header>
+
+    <nav>
+        <a href="#characters">Characters</a>
+        <a href="#game-modes">Game Modes</a>
+        <a href="#progression">F2P Progression</a>
+        <a href="index.html">Home</a>
+    </nav>
+
+    <div class="container">
+        <div id="characters" style="scroll-margin-top: 100px;">
+            <div class="filters">
+                <div class="search-section">
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search characters by name...">
+                    <button class="btn" onclick="resetFilters()">Reset Filters</button>
+                </div>
+
+                <div class="filter-group">
+                    <div>
+                        <label for="rarityFilter">Rarity:</label>
+                        <select id="rarityFilter" onchange="filterCharacters()">
+                            <option value="">All Rarities</option>
+                            <option value="Rare">Rare</option>
+                            <option value="Uncommon">Uncommon</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="factionFilter">Faction:</label>
+                        <select id="factionFilter" onchange="filterCharacters()">
+                            <option value="">All Factions</option>
+                            <option value="Knight Errant">Knight Errant</option>
+                            <option value="High Elves">High Elves</option>
+                            <option value="Ogryn Tribes">Ogryn Tribes</option>
+                            <option value="Undead">Undead</option>
+                            <option value="Sacred Order">Sacred Order</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="roleFilter">Role:</label>
+                        <select id="roleFilter" onchange="filterCharacters()">
+                            <option value="">All Roles</option>
+                            <option value="Attacker">Attacker</option>
+                            <option value="Support">Support</option>
+                            <option value="Healer">Healer</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results-count" id="resultsCount"></div>
+            <div class="characters-grid" id="charactersGrid"></div>
+        </div>
+
+        <div id="game-modes" style="scroll-margin-top: 100px;" class="game-modes-section">
+            <h2>📊 Game Modes & Strategies</h2>
+            <div class="modes-grid" id="modesGrid"></div>
+        </div>
+
+        <div id="progression" style="scroll-margin-top: 100px;" class="progression-section">
+            <h2>📈 F2P Progression Timeline</h2>
+            <div class="timeline" id="progressionTimeline"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Raid Shadow Legends Fan Guide | <a href="https://github.com/alicethewanderer93-pixel/RaidLegendsGuide">View on GitHub</a></p>
+        <p>This is a fan-made guide and is not affiliated with or endorsed by Plarium Games.</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;"><strong>F2P Notice:</strong> This guide focuses on free-to-play strategies. While gacha exists, all game content is completable without spending money.</p>
+    </footer>
+
+    <script>
+        let allCharacters = [];
+        let allModes = {};
+        let progressionTips = [];
+
+        // Fetch and load data
+        async function loadData() {
+            try {
+                const response = await fetch('characters.json');
+                const data = await response.json();
+                allCharacters = data.characters;
+                allModes = data.gameModesInfo;
+                progressionTips = data.buildingTips.f2pProgression;
+
+                renderCharacters();
+                renderGameModes();
+                renderProgression();
+            } catch (error) {
+                console.error('Error loading data:', error);
+                document.getElementById('charactersGrid').innerHTML = '<div class="no-results">Error loading character data. Please refresh the page.</div>';
+            }
+        }
+
+        function filterCharacters() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const rarityFilter = document.getElementById('rarityFilter').value;
+            const factionFilter = document.getElementById('factionFilter').value;
+            const roleFilter = document.getElementById('roleFilter').value;
+
+            const filtered = allCharacters.filter(char => {
+                const matchesSearch = char.name.toLowerCase().includes(searchTerm);
+                const matchesRarity = !rarityFilter || char.rarity === rarityFilter;
+                const matchesFaction = !factionFilter || char.faction === factionFilter;
+                
+                return matchesSearch && matchesRarity && matchesFaction;
+            });
+
+            document.getElementById('resultsCount').textContent = `Found ${filtered.length} character(s)`;
+            renderCharactersGrid(filtered);
+        }
+
+        function resetFilters() {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('rarityFilter').value = '';
+            document.getElementById('factionFilter').value = '';
+            document.getElementById('roleFilter').value = '';
+            renderCharacters();
+        }
+
+        function renderCharacters() {
+            document.getElementById('resultsCount').textContent = `Showing ${allCharacters.length} characters`;
+            renderCharactersGrid(allCharacters);
+        }
+
+        function renderCharactersGrid(characters) {
+            const grid = document.getElementById('charactersGrid');
+            
+            if (characters.length === 0) {
+                grid.innerHTML = '<div class="no-results">No characters found matching your filters.</div>';
+                return;
+            }
+
+            grid.innerHTML = characters.map(char => `
+                <div class="character-card">
+                    <div class="character-header">
+                        <div class="character-name">${char.name}</div>
+                        <div class="character-meta">
+                            <span class="badge rare">${char.rarity}</span>
+                            <span class="badge f2p">✓ ${char.obtainability}</span>
+                            <span class="badge">${char.faction}</span>
+                        </div>
+                    </div>
+                    <div class="character-content">
+                        <p class="character-description">${char.description}</p>
+
+                        <div class="stats-grid">
+                            <div class="stat">
+                                <div class="stat-label">ATK</div>
+                                <div class="stat-value">${char.stats.attack}</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">DEF</div>
+                                <div class="stat-value">${char.stats.defense}</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">HP</div>
+                                <div class="stat-value">${char.stats.hp}</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">SPD</div>
+                                <div class="stat-value">${char.stats.speed}</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">C.RATE</div>
+                                <div class="stat-value">${char.stats.critRate}%</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">C.DMG</div>
+                                <div class="stat-value">${char.stats.critDamage}%</div>
+                            </div>
+                        </div>
+
+                        <div class="builds-section">
+                            <h4>📋 Recommended Builds</h4>
+                            <div class="build-tab">
+                                ${Object.keys(char.builds).map((buildType, idx) => 
+                                    `<button class="build-btn ${idx === 0 ? 'active' : ''}" onclick="switchBuild(this, '${char.id}', '${buildType}')">${buildType.charAt(0).toUpperCase() + buildType.slice(1)}</button>`
+                                ).join('')}
+                            </div>
+                            <div class="build-details" id="build-${char.id}-${Object.keys(char.builds)[0]}">
+                                ${renderBuildDetails(char, Object.keys(char.builds)[0])}
+                            </div>
+                        </div>
+
+                        <div class="pros-cons">
+                            <div class="pros">
+                                <h5>✓ Strengths</h5>
+                                <ul>
+                                    ${char.pros.map(pro => `<li>${pro}</li>`).join('')}
+                                </ul>
+                            </div>
+                            <div class="cons">
+                                <h5>✗ Weaknesses</h5>
+                                <ul>
+                                    ${char.cons.map(con => `<li>${con}</li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderBuildDetails(char, buildType) {
+            const build = char.builds[buildType];
+            return `
+                <div class="build-detail-item">
+                    <span class="build-detail-label">Gear Set:</span>
+                    <span class="build-detail-value">${build.gearSet}</span>
+                </div>
+                <div class="build-detail-item">
+                    <span class="build-detail-label">Main Stats:</span>
+                    <span class="build-detail-value">${build.mainStats}</span>
+                </div>
+                <div class="build-detail-item">
+                    <span class="build-detail-label">Sub Stats:</span>
+                    <span class="build-detail-value">${build.substats.join(', ')}</span>
+                </div>
+                <div class="build-detail-item">
+                    <span class="build-detail-label">Difficulty:</span>
+                    <span class="build-detail-value">${build.difficulty}</span>
+                </div>
+                <div style="margin-top: 0.8rem; color: #95a5a6; font-size: 0.9rem;">
+                    📝 ${build.notes}
+                </div>
+            `;
+        }
+
+        function switchBuild(btn, charId, buildType) {
+            const parent = btn.parentElement;
+            parent.querySelectorAll('.build-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const char = allCharacters.find(c => c.id == charId);
+            const detailsDiv = document.getElementById(`build-${charId}-${buildType}`);
+            if (detailsDiv) {
+                detailsDiv.innerHTML = renderBuildDetails(char, buildType);
+            }
+        }
+
+        function renderGameModes() {
+            const grid = document.getElementById('modesGrid');
+            grid.innerHTML = Object.entries(allModes).map(([key, mode]) => {
+                const viability = mode.f2pViability === 'High' ? 100 : mode.f2pViability === 'Medium' ? 66 : 33;
+                return `
+                    <div class="mode-card">
+                        <h3>${key.replace(/([A-Z])/g, ' $1').trim()}</h3>
+                        <p>${mode.description}</p>
+                        <div class="viability">
+                            <span style="color: #95a5a6; font-size: 0.9rem;">F2P Viability:</span>
+                            <div class="viability-bar">
+                                <div class="viability-fill" style="width: ${viability}%"></div>
+                            </div>
+                            <span style="color: #f39c12; font-weight: bold;">${mode.f2pViability}</span>
+                        </div>
+                        <ul class="tips-list">
+                            ${mode.tips.map(tip => `<li>${tip}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderProgression() {
+            const timeline = document.getElementById('progressionTimeline');
+            timeline.innerHTML = progressionTips.map(tip => {
+                const [period, ...content] = tip.split(':');
+                return `
+                    <div class="timeline-item">
+                        <h4>${period}</h4>
+                        <p>${content.join(':').trim()}</p>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('keyup', filterCharacters);
+
+        // Load data on page load
+        window.addEventListener('DOMContentLoaded', loadData);
+    </script>
+</body>
+</html>
