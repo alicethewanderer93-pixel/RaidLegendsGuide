@@ -1,0 +1,599 @@
+{
+  "characters": [
+    {
+      "id": 1,
+      "name": "Athel",
+      "rarity": "Rare",
+      "faction": "Knight Errant",
+      "obtainability": "F2P",
+      "description": "Starting rare champion. Great for new players.",
+      "stats": {
+        "attack": 15,
+        "defense": 11,
+        "hp": 11,
+        "speed": 12,
+        "critRate": 15,
+        "critDamage": 50
+      },
+      "skills": [
+        {
+          "name": "Slash",
+          "description": "Deals damage based on ATK",
+          "scaling": "ATK"
+        },
+        {
+          "name": "Whirlwind",
+          "description": "AOE attack, heals when crit",
+          "scaling": "ATK"
+        }
+      ],
+      "builds": {
+        "campaign": {
+          "gearSet": "Lifesteal + Accuracy",
+          "mainStats": "ATK%, ATK%, ACC%",
+          "substats": ["CritRate", "CritDamg", "Speed"],
+          "difficulty": "Easy",
+          "notes": "Lifesteal keeps her alive, great for early game"
+        },
+        "arena": {
+          "gearSet": "Speed + Crit Damage",
+          "mainStats": "SPD%, ATK%, ATK%",
+          "substats": ["CritRate", "CritDamg", "Accuracy"],
+          "difficulty": "Medium",
+          "notes": "Focus on speed and damage output"
+        },
+        "dungeons": {
+          "gearSet": "Lifesteal + Accuracy",
+          "mainStats": "ATK%, ATK%, ACC%",
+          "substats": ["HP", "Resistance", "Speed"],
+          "difficulty": "Easy",
+          "notes": "Safe starter champion for all dungeons"
+        }
+      },
+      "pros": ["Free", "Reliable damage", "Early game friendly"],
+      "cons": ["Falls off late game", "Needs good gear", "Average stats"],
+      "paidOrFree": "FREE"
+    },
+    {
+      "id": 2,
+      "name": "Kael",
+      "rarity": "Rare",
+      "faction": "High Elves",
+      "obtainability": "F2P",
+      "description": "One of the best starter champions, excellent damage dealer.",
+      "stats": {
+        "attack": 16,
+        "defense": 10,
+        "hp": 11,
+        "speed": 11,
+        "critRate": 15,
+        "critDamage": 50
+      },
+      "skills": [
+        {
+          "name": "Flame Surge",
+          "description": "Single target damage",
+          "scaling": "ATK"
+        },
+        {
+          "name": "Hellfire",
+          "description": "AOE poison damage",
+          "scaling": "ATK"
+        }
+      ],
+      "builds": {
+        "campaign": {
+          "gearSet": "Lifesteal + Accuracy",
+          "mainStats": "ATK%, ATK%, ACC%",
+          "substats": ["CritRate", "Speed", "Resistance"],
+          "difficulty": "Easy",
+          "notes": "Poison scales off turns, great for campaign"
+        },
+        "arena": {
+          "gearSet": "Speed + Crit Damage",
+          "mainStats": "SPD%, ATK%, CritDamg%",
+          "substats": ["CritRate", "Accuracy", "HP"],
+          "difficulty": "Medium",
+          "notes": "First turn matters, build for speed"
+        },
+        "dungeons": {
+          "gearSet": "Lifesteal + Accuracy",
+          "mainStats": "ATK%, ATK%, ACC%",
+          "substats": ["HP", "Speed", "Resistance"],
+          "difficulty": "Medium",
+          "notes": "Great poison applicator for spider"
+        }
+      },
+      "pros": ["Free", "Great damage output", "Poison utility", "Versatile"],
+      "cons": ["Weak early stats", "Needs support", "Not unkillable"],
+      "paidOrFree": "FREE"
+    },
+    {
+      "id": 3,
+      "name": "Elhain",
+      "rarity": "Rare",
+      "faction": "High Elves",
+      "obtainability": "F2P",
+      "description": "Solar energy based attacker, good for beginners.",
+      "stats": {
+        "attack": 15,
+        "defense": 11,
+        "hp": 12,
+        "speed": 11,
+        "critRate": 15,
+        "critDamage": 50
+      },
+      "skills": [
+        {
+          "name": "Blinding Light",
+          "description": "Single target damage",
+          "scaling": "ATK"
+        },
+        {
+          "name": "Solar Flare",
+          "description": "AOE damage, applies weaken",
+          "scaling": "ATK"
+        }
+      ],
+      "builds": {
+        "campaign": {
+          "gearSet": "Lifesteal + Accuracy",
+          "mainStats": "ATK%, ATK%, ACC%",
+          "substats": ["CritRate", "Speed", "HP"],
+          "difficulty": "Easy",
+          "notes": "Solid all-rounder for campaign"
+        },
+        "arena": {
+          "gearSet": "Speed + Crit",
+          "mainStats": "SPD%, ATK%, CritDamg%",
+          "substats": ["CritRate", "Accuracy", "Speed"],
+          "difficulty": "Medium",
+          "notes": "Speed dependent, needs good gear"
+        },
+        "dungeons": {
+          "gearSet": "Lifesteal + Accuracy",
+          "mainStats": "ATK%, ATK%, ACC%",
+          "substats": ["HP", "Speed", "Resistance"],
+          "difficulty": "Medium",
+          "notes": "Weaken utility helpful for bosses"
+        }
+      },
+      "pros": ["Free", "Weaken debuff", "Good damage", "Beginner friendly"],
+      "cons": ["Falls off late", "Stat dependent", "Needs investment"],
+      "paidOrFree": "FREE"
+    },
+    {
+      "id": 4,
+      "name": "Galek",
+      "rarity": "Rare",
+      "faction": "Ogryn Tribes",
+      "obtainability": "F2P",
+      "description": "Starting rare champion, great damage output.",
+      "stats": {
+        "attack": 16,
+        "defense": 9,
+        "hp": 11,
+        "speed": 12,
+        "critRate": 15,
+        "critDamage": 50
+      },
+      "skills": [
+        {
+          "name": "Slash",
+          "description": "Single target damage",
+          "scaling": "ATK"
+        },
+        {
+          "name": "Whirlwind",
+          "description": "AOE attack",
+          "scaling": "ATK"
+        }
+      ],
+      "builds": {
+        "campaign": {
+          "gearSet": "Lifesteal + Accuracy",
+          "mainStats": "ATK%, ATK%, ACC%",
+          "substats": ["CritRate", "Speed", "HP"],
+          "difficulty": "Easy",
+          "notes": "Great for early game, needs lifesteal"
+        },
+        "arena": {
+          "gearSet": "Speed + Crit Damage",
+          "mainStats": "SPD%, ATK%, CritDamg%",
+          "substats": ["CritRate", "Accuracy", "HP"],
+          "difficulty": "Medium",
+          "notes": "High attack stat, build for speed"
+        },
+        "dungeons": {
+          "gearSet": "Lifesteal + Accuracy",
+          "mainStats": "ATK%, ATK%, ACC%",
+          "substats": ["HP", "Speed", "Resistance"],
+          "difficulty": "Medium",
+          "notes": "Solid damage dealer for most dungeons"
+        }
+      },
+      "pros": ["Free", "High attack", "Good speed", "Beginner friendly"],
+      "cons": ["Low defense", "Needs lifesteal", "Single target weak"],
+      "paidOrFree": "FREE"
+    },
+    {
+      "id": 5,
+      "name": "Seer",
+      "rarity": "Rare",
+      "faction": "Undead",
+      "obtainability": "F2P",
+      "description": "HP scaling support champion, great for Clan Boss.",
+      "stats": {
+        "attack": 11,
+        "defense": 11,
+        "hp": 16,
+        "speed": 10,
+        "critRate": 0,
+        "critDamage": 50
+      },
+      "skills": [
+        {
+          "name": "Seer's Wrath",
+          "description": "AOE damage based on enemy HP",
+          "scaling": "HP"
+        },
+        {
+          "name": "Rally",
+          "description": "Team ATK buff",
+          "scaling": "SUPPORT"
+        }
+      ],
+      "builds": {
+        "clanBoss": {
+          "gearSet": "Lifesteal + Speed",
+          "mainStats": "HP%, HP%, SPD%",
+          "substats": ["Defense", "Resistance", "Speed"],
+          "difficulty": "Medium",
+          "notes": "Key champion for Clan Boss, scales with boss HP"
+        },
+        "dungeons": {
+          "gearSet": "Speed + Resistance",
+          "mainStats": "HP%, SPD%, RES%",
+          "substats": ["Defense", "HP", "Speed"],
+          "difficulty": "Medium",
+          "notes": "Great for staying alive and dealing damage"
+        }
+      },
+      "pros": ["Free", "HP scaling", "Support utility", "Clan Boss MVP"],
+      "cons": ["Low speed base", "Weak early", "Needs specific builds"],
+      "paidOrFree": "FREE"
+    },
+    {
+      "id": 6,
+      "name": "Spirithost",
+      "rarity": "Uncommon",
+      "faction": "Undead",
+      "obtainability": "F2P",
+      "description": "Budget support, great for buff stacking.",
+      "stats": {
+        "attack": 10,
+        "defense": 10,
+        "hp": 13,
+        "speed": 13,
+        "critRate": 0,
+        "critDamage": 0
+      },
+      "skills": [
+        {
+          "name": "Strike",
+          "description": "Basic attack",
+          "scaling": "ATK"
+        },
+        {
+          "name": "Increase SPD",
+          "description": "Team speed buff",
+          "scaling": "SUPPORT"
+        }
+      ],
+      "builds": {
+        "campaign": {
+          "gearSet": "Speed + Accuracy",
+          "mainStats": "SPD%, ACC%, DEF%",
+          "substats": ["Speed", "HP", "Defense"],
+          "difficulty": "Easy",
+          "notes": "Budget support, great for new players"
+        },
+        "arena": {
+          "gearSet": "Speed + Accuracy",
+          "mainStats": "SPD%, ACC%, DEF%",
+          "substats": ["Speed", "HP", "Defense"],
+          "difficulty": "Easy",
+          "notes": "First turn matters, build for speed"
+        }
+      },
+      "pros": ["Free", "Speed buff", "Easy to use", "Budget friendly"],
+      "cons": ["Low stats", "No damage", "Limited utility"],
+      "paidOrFree": "FREE"
+    },
+    {
+      "id": 7,
+      "name": "Warpriest",
+      "rarity": "Uncommon",
+      "faction": "Sacred Order",
+      "obtainability": "F2P",
+      "description": "Budget healer and support.",
+      "stats": {
+        "attack": 9,
+        "defense": 11,
+        "hp": 14,
+        "speed": 11,
+        "critRate": 0,
+        "critDamage": 0
+      },
+      "skills": [
+        {
+          "name": "Holy Strike",
+          "description": "Single target damage",
+          "scaling": "ATK"
+        },
+        {
+          "name": "Heal",
+          "description": "Heal team",
+          "scaling": "SUPPORT"
+        }
+      ],
+      "builds": {
+        "campaign": {
+          "gearSet": "Speed + Resistance",
+          "mainStats": "HP%, SPD%, RES%",
+          "substats": ["Defense", "HP", "Speed"],
+          "difficulty": "Easy",
+          "notes": "Budget healer for beginners"
+        },
+        "dungeons": {
+          "gearSet": "Speed + Resistance",
+          "mainStats": "HP%, SPD%, RES%",
+          "substats": ["Defense", "HP", "Speed"],
+          "difficulty": "Medium",
+          "notes": "Safe healer option"
+        }
+      },
+      "pros": ["Free", "Healer", "Keeps team alive", "Budget option"],
+      "cons": ["Low stats", "Weak support", "Limited utility"],
+      "paidOrFree": "FREE"
+    },
+    {
+      "id": 8,
+      "name": "Executioner",
+      "rarity": "Rare",
+      "faction": "Ogryn Tribes",
+      "obtainability": "F2P",
+      "description": "HP scaling debuffer, great for dungeons.",
+      "stats": {
+        "attack": 12,
+        "defense": 12,
+        "hp": 14,
+        "speed": 10,
+        "critRate": 0,
+        "critDamage": 50
+      },
+      "skills": [
+        {
+          "name": "Executioner's Blade",
+          "description": "Single target damage",
+          "scaling": "ATK"
+        },
+        {
+          "name": "Demoralize",
+          "description": "DEF down debuff",
+          "scaling": "DEBUFF"
+        }
+      ],
+      "builds": {
+        "dungeons": {
+          "gearSet": "Speed + Accuracy",
+          "mainStats": "HP%, DEF%, ACC%",
+          "substats": ["Speed", "Accuracy", "Defense"],
+          "difficulty": "Medium",
+          "notes": "DEF down utility for dungeons"
+        },
+        "clanBoss": {
+          "gearSet": "Accuracy + Speed",
+          "mainStats": "HP%, ACC%, SPD%",
+          "substats": ["Defense", "Speed", "Accuracy"],
+          "difficulty": "Hard",
+          "notes": "Great for DEF down on boss"
+        }
+      },
+      "pros": ["F2P", "DEF down debuff", "Tanky", "Versatile"],
+      "cons": ["Accuracy dependent", "Needs gear", "Moderate stats"],
+      "paidOrFree": "FREE"
+    },
+    {
+      "id": 9,
+      "name": "Jizoh",
+      "rarity": "Uncommon",
+      "faction": "Ogryn Tribes",
+      "obtainability": "F2P",
+      "description": "Budget attacker with taunt.",
+      "stats": {
+        "attack": 12,
+        "defense": 11,
+        "hp": 12,
+        "speed": 10,
+        "critRate": 15,
+        "critDamage": 50
+      },
+      "skills": [
+        {
+          "name": "Slam",
+          "description": "Single target damage",
+          "scaling": "ATK"
+        },
+        {
+          "name": "Taunt",
+          "description": "Apply taunt debuff",
+          "scaling": "DEBUFF"
+        }
+      ],
+      "builds": {
+        "campaign": {
+          "gearSet": "Lifesteal + Accuracy",
+          "mainStats": "ATK%, ATK%, ACC%",
+          "substats": ["CritRate", "Speed", "HP"],
+          "difficulty": "Easy",
+          "notes": "Taunt utility for campaign"
+        },
+        "arena": {
+          "gearSet": "Speed + Accuracy",
+          "mainStats": "SPD%, ATK%, ACC%",
+          "substats": ["CritRate", "HP", "Speed"],
+          "difficulty": "Medium",
+          "notes": "Taunt can disrupt enemy turn order"
+        }
+      },
+      "pros": ["Free", "Taunt utility", "Good damage", "Beginner friendly"],
+      "cons": ["Low stats", "Taunt unreliable", "Needs gear"],
+      "paidOrFree": "FREE"
+    },
+    {
+      "id": 10,
+      "name": "Rowan",
+      "rarity": "Rare",
+      "faction": "High Elves",
+      "obtainability": "F2P",
+      "description": "Budget support champion, great for beginners.",
+      "stats": {
+        "attack": 11,
+        "defense": 12,
+        "hp": 12,
+        "speed": 11,
+        "critRate": 0,
+        "critDamage": 0
+      },
+      "skills": [
+        {
+          "name": "Arrow Shot",
+          "description": "Single target damage",
+          "scaling": "ATK"
+        },
+        {
+          "name": "Defense Buff",
+          "description": "Team DEF buff",
+          "scaling": "SUPPORT"
+        }
+      ],
+      "builds": {
+        "campaign": {
+          "gearSet": "Speed + Accuracy",
+          "mainStats": "SPD%, DEF%, ACC%",
+          "substats": ["Defense", "Speed", "HP"],
+          "difficulty": "Easy",
+          "notes": "Budget DEF support"
+        },
+        "dungeons": {
+          "gearSet": "Speed + Resistance",
+          "mainStats": "SPD%, DEF%, RES%",
+          "substats": ["Defense", "Speed", "HP"],
+          "difficulty": "Medium",
+          "notes": "Keeps team alive with DEF buff"
+        }
+      },
+      "pros": ["F2P", "Support utility", "Safe", "Beginner friendly"],
+      "cons": ["Low damage", "Weak stats", "Limited impact"],
+      "paidOrFree": "FREE"
+    }
+  ],
+  "gameModesInfo": {
+    "campaign": {
+      "description": "Story mode where you progress through stages and farm materials",
+      "f2pViability": "High",
+      "bestChampions": ["Athel", "Kael", "Elhain", "Galek"],
+      "tips": [
+        "Focus on one strong damage dealer",
+        "Get a healer early",
+        "Lifesteal gear is essential",
+        "Build for survival first"
+      ]
+    },
+    "arena": {
+      "description": "PvP mode where you battle other players",
+      "f2pViability": "Medium",
+      "bestChampions": ["Seer", "Spirithost"],
+      "tips": [
+        "Speed is critical for first turn",
+        "Build around synergies",
+        "Control is important",
+        "Don't invest too early"
+      ]
+    },
+    "dungeons": {
+      "description": "Repeatable dungeons: Dragon, Spider, Fire Knight, Void, Minotaur",
+      "f2pViability": "High",
+      "bestChampions": ["Kael", "Athel", "Executioner"],
+      "tips": [
+        "Each dungeon needs specific strategy",
+        "Survivability > Damage",
+        "Have multiple options",
+        "Accuracy for debuffs"
+      ]
+    },
+    "clanBoss": {
+      "description": "Weekly clan raid against powerful boss",
+      "f2pViability": "Medium",
+      "bestChampions": ["Seer", "Executioner"],
+      "tips": [
+        "DEF down is crucial",
+        "Weaken debuff is helpful",
+        "Sustain matters",
+        "Build for utility first"
+      ]
+    },
+    "doomTower": {
+      "description": "Progressive tower with increasing difficulty",
+      "f2pViability": "Medium",
+      "bestChampions": ["Warpriest"],
+      "tips": [
+        "Plan ahead for each floor",
+        "Healers are essential",
+        "Save your best team",
+        "Study enemy mechanics"
+      ]
+    },
+    "factionWars": {
+      "description": "Battle other factions to earn rewards",
+      "f2pViability": "Medium",
+      "bestChampions": [],
+      "tips": [
+        "Build faction-specific teams",
+        "Mix offense and defense",
+        "Upgrade your champions",
+        "Plan your battles"
+      ]
+    }
+  },
+  "buildingTips": {
+    "f2pProgression": [
+      "Week 1-2: Focus on Campaign Cruel. Get Athel/Kael/Galek to level 50",
+      "Week 2-3: Build a Lifesteal set. This is crucial for progression",
+      "Week 3-4: Get to Campaign Nightmare. Farm for gear",
+      "Week 4-6: Build a basic dungeon team for Dragon (easiest)",
+      "Week 6-8: Try Spider dungeon for crit gear",
+      "Month 2: Focus on Clan Boss. Need DEF down champions",
+      "Month 3: Start Doom Tower Normal",
+      "Month 4+: Mix of everything, focus on what's lacking"
+    ],
+    "gearSets": {
+      "lifesteal": "Essential for survival and damage dealers early game",
+      "speed": "Makes you go first in arena and dungeons",
+      "accuracy": "Needed for debuffs to land (DEF down, weaken, etc)",
+      "crit": "Increases damage output significantly",
+      "defense": "For tanks and healers",
+      "resistance": "Helps resist crowd control"
+    },
+    "mainStats": {
+      "slot2": "SPEED is always priority (except supports can do DEF/HP)",
+      "slot4": "CRIT Damage or ATK% (depends on role)",
+      "slot6": "HP%, DEF%, or Accuracy depending on champion role"
+    }
+  },
+  "gacha": {
+    "notice": "This is a premium currency system. F2P players get 1-2 free sacred shards per month. Focus on farmable champions and free champions instead.",
+    "f2pTip": "You can complete all content without spending. Save shards for 2x events for better value."
+  }
+}
