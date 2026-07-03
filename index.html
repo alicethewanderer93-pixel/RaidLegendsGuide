@@ -3,442 +3,295 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raid Shadow Legends Guide</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: #ecf0f1;
-            line-height: 1.6;
-        }
-
-        header {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 2rem;
-            text-align: center;
-            border-bottom: 3px solid #e74c3c;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            color: #e74c3c;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 0.5rem;
-        }
-
-        header p {
-            color: #bdc3c7;
-            font-size: 1.1rem;
-        }
-
-        .f2p-badge {
-            display: inline-block;
-            background: #27ae60;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.95rem;
-            margin-top: 0.5rem;
-            font-weight: bold;
-        }
-
-        nav {
-            background: rgba(0, 0, 0, 0.9);
-            padding: 1rem;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            color: #ecf0f1;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            font-weight: bold;
-        }
-
-        nav a:hover {
-            background: #e74c3c;
-            color: #fff;
-            transform: translateY(-2px);
-        }
-
-        nav a.active {
-            background: #e74c3c;
-            color: #fff;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .hero {
-            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
-            padding: 3rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            text-align: center;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: white;
-            color: #e74c3c;
-            padding: 0.75rem 2rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            margin: 0.5rem;
-        }
-
-        .cta-button:hover {
-            background: #f39c12;
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid #e74c3c;
-            border-radius: 8px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            cursor: pointer;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            background: rgba(231, 76, 60, 0.2);
-            box-shadow: 0 12px 24px rgba(231, 76, 60, 0.3);
-        }
-
-        .card h3 {
-            color: #e74c3c;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .card p {
-            color: #bdc3c7;
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-
-        .card-link {
-            display: inline-block;
-            color: #f39c12;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        .card-link:hover {
-            color: #e74c3c;
-            text-decoration: underline;
-        }
-
-        .features-section {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2rem;
-            border-radius: 8px;
-            border: 1px solid rgba(231, 76, 60, 0.3);
-            margin-bottom: 2rem;
-        }
-
-        .features-section h2 {
-            color: #e74c3c;
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-        }
-
-        .features-list {
-            list-style: none;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-        }
-
-        .features-list li {
-            padding: 1rem;
-            background: rgba(0, 0, 0, 0.2);
-            border-left: 4px solid #27ae60;
-            border-radius: 4px;
-            color: #bdc3c7;
-        }
-
-        .features-list li:before {
-            content: "✓ ";
-            color: #27ae60;
-            font-weight: bold;
-            margin-right: 0.5rem;
-        }
-
-        .stats-showcase {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2rem;
-            border-radius: 8px;
-            border: 1px solid rgba(39, 174, 96, 0.3);
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .stats-showcase h2 {
-            color: #27ae60;
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-        }
-
-        .stat-box {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border: 2px solid #27ae60;
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            color: #f39c12;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            color: #bdc3c7;
-            font-size: 1rem;
-        }
-
-        .content-section {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2rem;
-            border-radius: 8px;
-            border: 1px solid rgba(231, 76, 60, 0.3);
-            margin-bottom: 2rem;
-        }
-
-        .content-section h2 {
-            color: #e74c3c;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .content-section p {
-            color: #bdc3c7;
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-
-        footer {
-            background: rgba(0, 0, 0, 0.9);
-            text-align: center;
-            padding: 1.5rem;
-            margin-top: 2rem;
-            border-top: 3px solid #e74c3c;
-            color: #95a5a6;
-        }
-
-        footer a {
-            color: #e74c3c;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 1.8rem;
-            }
-
-            nav {
-                gap: 1rem;
-            }
-
-            .hero {
-                padding: 1.5rem;
-            }
-
-            .cards {
-                grid-template-columns: 1fr;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .cta-button {
-                display: block;
-                margin: 0.5rem auto;
-            }
-        }
-    </style>
+    <meta name="description" content="Raid Shadow Legends Fan Guide - Mobile Friendly">
+    <meta name="theme-color" content="#1a1a2e">
+    <title>Raid Legends Guide</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
-    <header>
-        <h1>⚔️ Raid Shadow Legends Guide ⚔️</h1>
-        <p>Your Ultimate Fan-Made Companion</p>
-        <div class="f2p-badge">🎮 100% Free-to-Play Focused</div>
-    </header>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="logo">⚔️ Raid Legends</h1>
+                <p class="tagline">Fan Resource Hub</p>
+            </div>
+        </header>
 
-    <nav>
-        <a href="#home" class="active">Home</a>
-        <a href="characters.html">Characters</a>
-        <a href="#tips">Tips & Tricks</a>
-        <a href="#strategy">Strategy</a>
-        <a href="#resources">Resources</a>
-    </nav>
+        <!-- Navigation -->
+        <nav class="nav-tabs">
+            <button class="nav-tab active" data-section="heroes">Heroes</button>
+            <button class="nav-tab" data-section="dungeons">Dungeons</button>
+            <button class="nav-tab" data-section="tips">Tips</button>
+            <button class="nav-tab" data-section="builds">Builds</button>
+        </nav>
 
-    <div class="container">
-        <div class="hero">
-            <h2>Welcome to the Raid Shadow Legends Guide</h2>
-            <p>Master the game with our comprehensive guides, strategies, and hero information. Whether you're a beginner or an experienced player, find everything you need to succeed in Raid Shadow Legends.</p>
-            <a href="characters.html" class="cta-button">🔥 Explore Characters</a>
-            <a href="#tips" class="cta-button">📚 View Tips</a>
-        </div>
-
-        <div class="stats-showcase">
-            <h2>📊 Database Coverage</h2>
-            <div class="stats-grid">
-                <div class="stat-box">
-                    <div class="stat-number">10+</div>
-                    <div class="stat-label">F2P Characters</div>
+        <!-- Main Content -->
+        <main class="content">
+            <!-- Heroes Section -->
+            <section id="heroes" class="section active">
+                <h2>Champion Tier List</h2>
+                <div class="search-box">
+                    <input type="text" id="heroSearch" placeholder="Search champions...">
                 </div>
-                <div class="stat-box">
-                    <div class="stat-number">6</div>
-                    <div class="stat-label">Game Modes</div>
+                <div class="hero-grid">
+                    <div class="hero-card s-tier">
+                        <div class="tier-badge">S</div>
+                        <img src="images/arbiter.jpg" alt="Arbiter" class="hero-image" onerror="this.style.display='none'">
+                        <h3>Arbiter</h3>
+                        <p class="role">Support</p>
+                        <div class="stats">
+                            <span>⭐⭐⭐⭐⭐</span>
+                        </div>
+                    </div>
+                    <div class="hero-card s-tier">
+                        <div class="tier-badge">S</div>
+                        <img src="images/siphi.jpg" alt="Siphi the Lost Bride" class="hero-image" onerror="this.style.display='none'">
+                        <h3>Siphi the Lost Bride</h3>
+                        <p class="role">Support</p>
+                        <div class="stats">
+                            <span>⭐⭐⭐⭐⭐</span>
+                        </div>
+                    </div>
+                    <div class="hero-card a-tier">
+                        <div class="tier-badge">A</div>
+                        <img src="images/rotos.jpg" alt="Rotos the Lost Groom" class="hero-image" onerror="this.style.display='none'">
+                        <h3>Rotos the Lost Groom</h3>
+                        <p class="role">Damage Dealer</p>
+                        <div class="stats">
+                            <span>⭐⭐⭐⭐</span>
+                        </div>
+                    </div>
+                    <div class="hero-card a-tier">
+                        <div class="tier-badge">A</div>
+                        <img src="images/mithrala.jpg" alt="Mithrala Lifebringer" class="hero-image" onerror="this.style.display='none'">
+                        <h3>Mithrala Lifebringer</h3>
+                        <p class="role">Support</p>
+                        <div class="stats">
+                            <span>⭐⭐⭐⭐</span>
+                        </div>
+                    </div>
+                    <div class="hero-card b-tier">
+                        <div class="tier-badge">B</div>
+                        <img src="images/miscreated-monster.jpg" alt="Miscreated Monster" class="hero-image" onerror="this.style.display='none'">
+                        <h3>Miscreated Monster</h3>
+                        <p class="role">Tank</p>
+                        <div class="stats">
+                            <span>⭐⭐⭐</span>
+                        </div>
+                    </div>
+                    <div class="hero-card b-tier">
+                        <div class="tier-badge">B</div>
+                        <img src="images/frozen-baneling.jpg" alt="Frozen Baneling" class="hero-image" onerror="this.style.display='none'">
+                        <h3>Frozen Baneling</h3>
+                        <p class="role">Control</p>
+                        <div class="stats">
+                            <span>⭐⭐⭐</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="stat-box">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">F2P Obtainable</div>
+            </section>
+
+            <!-- Dungeons Section -->
+            <section id="dungeons" class="section">
+                <h2>Dungeon Strategies</h2>
+                <div class="dungeon-list">
+                    <div class="dungeon-card">
+                        <h3>Spider's Den</h3>
+                        <p class="difficulty">Difficulty: Hard</p>
+                        <ul class="tips-list">
+                            <li>Use AOE damage dealers</li>
+                            <li>Bring crowd control</li>
+                            <li>Spiderlings target lowest HP champion</li>
+                            <li>Recommended: Support + DD + CC</li>
+                        </ul>
+                        <button class="btn-details">View Strategy</button>
+                    </div>
+                    <div class="dungeon-card">
+                        <h3>Fire Knight's Castle</h3>
+                        <p class="difficulty">Difficulty: Medium</p>
+                        <ul class="tips-list">
+                            <li>Focus on shield breaks</li>
+                            <li>Use weak hit champions</li>
+                            <li>Speed tuning is crucial</li>
+                            <li>Recommended: DPS + Support</li>
+                        </ul>
+                        <button class="btn-details">View Strategy</button>
+                    </div>
+                    <div class="dungeon-card">
+                        <h3>Dragon's Lair</h3>
+                        <p class="difficulty">Difficulty: Very Hard</p>
+                        <ul class="tips-list">
+                            <li>Poison damage is effective</li>
+                            <li>Cleanse debuffs regularly</li>
+                            <li>Keep team healed</li>
+                            <li>Recommended: Healer + Poison + CC</li>
+                        </ul>
+                        <button class="btn-details">View Strategy</button>
+                    </div>
+                    <div class="dungeon-card">
+                        <h3>Ice Golem's Peak</h3>
+                        <p class="difficulty">Difficulty: Hard</p>
+                        <ul class="tips-list">
+                            <li>Burn damage works great</li>
+                            <li>Attack down is valuable</li>
+                            <li>Heal through incoming damage</li>
+                            <li>Recommended: Support + Burn + Healer</li>
+                        </ul>
+                        <button class="btn-details">View Strategy</button>
+                    </div>
                 </div>
-                <div class="stat-box">
-                    <div class="stat-number">∞</div>
-                    <div class="stat-label">Strategies</div>
+            </section>
+
+            <!-- Tips Section -->
+            <section id="tips" class="section">
+                <h2>Pro Tips & Guides</h2>
+                <div class="tips-container">
+                    <div class="tip-card">
+                        <h3>🎯 Team Building Basics</h3>
+                        <p>Always include: 1 Healer, 1 Damage Dealer, 1 Tank/CC, 2 Utility. This balanced approach works in most dungeons.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h3>⚡ Speed Tuning</h3>
+                        <p>Speed is crucial! Aim for: Healer fastest, then DPS, then Tank. This ensures optimal turn order and survival.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h3>💎 Resource Management</h3>
+                        <p>Don't waste Silver on low-tier champions. Focus on 1-2 teams first before spreading resources thin.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h3>🏆 Gear Priority</h3>
+                        <p>Prioritize: Accuracy for control champs, Speed for supports, HP/DEF for tanks. Gear pieces matter more than stars.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h3>📊 Artifact Farming</h3>
+                        <p>Farm dungeons 16+ for optimal rewards. Join an active Clan for bonuses. Daily quests are free resources!</p>
+                    </div>
+                    <div class="tip-card">
+                        <h3>🎪 Arena Strategy</h3>
+                        <p>Defense team: Put your fastest champion first. Offense: Speed > Burst damage. Counter meta picks for wins.</p>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </section>
 
-        <div class="cards">
-            <div class="card" onclick="window.location.href='characters.html'">
-                <h3>📚 Heroes Database</h3>
-                <p>Explore detailed information about all F2P champions, their skills, optimal builds, and strategies for different game modes.</p>
-                <a href="characters.html" class="card-link">View Database →</a>
-            </div>
+            <!-- Builds Section -->
+            <section id="builds" class="section">
+                <h2>Champion Builds</h2>
+                <div class="builds-container">
+                    <div class="build-card">
+                        <h3>Arbiter - Support Build</h3>
+                        <div class="base-stats">
+                            <p class="stats-label">Base Stats (Lvl 60)</p>
+                            <div class="stat">
+                                <span class="stat-name">HP:</span>
+                                <span class="stat-value">18,375</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-name">ATK:</span>
+                                <span class="stat-value">903</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-name">DEF:</span>
+                                <span class="stat-value">1,237</span>
+                            </div>
+                        </div>
+                        <div class="build-stats">
+                            <p class="stats-label">Recommended Build Stats</p>
+                            <div class="stat">
+                                <span class="stat-name">Speed:</span>
+                                <span class="stat-value">180+</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-name">Accuracy:</span>
+                                <span class="stat-value">150+</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-name">HP:</span>
+                                <span class="stat-value">25k+</span>
+                            </div>
+                        </div>
+                        <p class="build-artifacts">Artifacts: Speed + Perception</p>
+                    </div>
+                    <div class="build-card">
+                        <h3>Miscreated Monster - Tank Build</h3>
+                        <div class="base-stats">
+                            <p class="stats-label">Base Stats (Lvl 60)</p>
+                            <div class="stat">
+                                <span class="stat-name">HP:</span>
+                                <span class="stat-value">22,965</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-name">ATK:</span>
+                                <span class="stat-value">958</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-name">DEF:</span>
+                                <span class="stat-value">815</span>
+                            </div>
+                        </div>
+                        <div class="build-stats">
+                            <p class="stats-label">Recommended Build Stats</p>
+                            <div class="stat">
+                                <span class="stat-name">Defense:</span>
+                                <span class="stat-value">3000+</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-name">HP:</span>
+                                <span class="stat-value">35k+</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-name">Resistance:</span>
+                                <span class="stat-value">200+</span>
+                            </div>
+                        </div>
+                        <p class="build-artifacts">Artifacts: Regeneration + Defense</p>
+                    </div>
+                    <div class="build-card">
+                        <h3>Rotos - DPS Build</h3>
+                        <div class="base-stats">
+                            <p class="stats-label">Base Stats (Lvl 60)</p>
+                            <div class="stat">
+                                <span class="stat-name">HP:</span>
+                                <span class="stat-value">11,895</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-name">ATK:</span>
+                                <span class="stat-value">1,520</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-name">DEF:</span>
+                                <span class="stat-value">1,266</span>
+                            </div>
+                        </div>
+                        <div class="build-stats">
+                            <p class="stats-label">Recommended Build Stats</p>
+                            <div class="stat">
+                                <span class="stat-name">Attack:</span>
+                                <span class="stat-value">5000+</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-name">Critical Rate:</span>
+                                <span class="stat-value">100%</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-name">Critical Damage:</span>
+                                <span class="stat-value">250%+</span>
+                            </div>
+                        </div>
+                        <p class="build-artifacts">Artifacts: Offense + Accuracy</p>
+                    </div>
+                </div>
+            </section>
+        </main>
 
-            <div class="card">
-                <h3>🎯 Game Tips</h3>
-                <p>Learn essential tips and tricks to improve your gameplay, including team composition, resource management, and progression strategies.</p>
-                <a href="#tips" class="card-link">Read Tips →</a>
-            </div>
-
-            <div class="card">
-                <h3>⚡ Combat Strategies</h3>
-                <p>Discover proven strategies for dungeons, arena battles, and endgame content to maximize your rewards and climb the ranks.</p>
-                <a href="#strategy" class="card-link">Learn Strategies →</a>
-            </div>
-
-            <div class="card">
-                <h3>💡 Beginner's Guide</h3>
-                <p>New to Raid? Start here with our comprehensive beginner's guide covering the basics and early-game progression without spending.</p>
-                <a href="#tips" class="card-link">Get Started →</a>
-            </div>
-
-            <div class="card">
-                <h3>🏆 Meta Analysis</h3>
-                <p>Stay updated with the current meta, popular team compositions, and the strongest F2P champions in each game mode.</p>
-                <a href="characters.html" class="card-link">View Meta →</a>
-            </div>
-
-            <div class="card">
-                <h3>🔗 Resources</h3>
-                <p>Find links to community forums, calculators, and other useful tools created by the Raid Shadow Legends community.</p>
-                <a href="#resources" class="card-link">Explore Resources →</a>
-            </div>
-        </div>
-
-        <div class="features-section">
-            <h2>✨ Why Use This Guide?</h2>
-            <ul class="features-list">
-                <li><strong>100% F2P Focused:</strong> All content completable without spending money</li>
-                <li><strong>Detailed Character Builds:</strong> Specific gear recommendations for each game mode</li>
-                <li><strong>Game Mode Guides:</strong> Strategies for Campaign, Arena, Dungeons, Clan Boss, Doom Tower, and Faction Wars</li>
-                <li><strong>Progression Timeline:</strong> Clear roadmap for your first 4+ months</li>
-                <li><strong>Budget Strategies:</strong> Beginner-friendly champions and team compositions</li>
-                <li><strong>Regular Updates:</strong> Database updated as the game evolves</li>
-            </ul>
-        </div>
-
-        <div id="tips" class="content-section">
-            <h2>🎯 Essential Game Tips</h2>
-            <p><strong>Early Game (Week 1-2):</strong> Focus on Campaign Cruel difficulty. Choose your starting champion (Athel, Kael, Elhain, or Galek) and get them to level 50. Don't spread resources thin—focus on one strong damage dealer first.</p>
-            <p><strong>Gear Matters:</strong> Lifesteal gear is absolutely essential for early game. If you can farm Lifesteal sets, your champions will survive much longer. Look for pieces with good substats in Attack, Critical Rate, and Speed.</p>
-            <p><strong>Don't Chase Gacha Early:</strong> You get 1-2 free sacred shards per month. Save them for 2x events for better value. The free champions can complete all game content.</p>
-            <p><strong>Team Synergy:</strong> Build teams that complement each other. Have at least one damage dealer, one support, and one way to sustain (healer or lifesteal).</p>
-        </div>
-
-        <div id="strategy" class="content-section">
-            <h2>⚔️ Game Modes Overview</h2>
-            <p><strong>Campaign:</strong> Your primary source of experience and gear. Progress through Normal, Hard, then Brutal and Nightmare for better rewards. Use Lifesteal gear to sustain.</p>
-            <p><strong>Dungeons:</strong> Five different dungeons (Dragon, Spider, Fire Knight, Void, Minotaur) each drop specific gear types. Dragon is easiest and best for beginners. Start with Dragon 12-13, work up to 20.</p>
-            <p><strong>Arena:</strong> PvP content where speed and burst damage matter most. Build one strong arena team with speed buff and high damage dealers. Don't rush into competitive arena early.</p>
-            <p><strong>Clan Boss:</strong> Weekly raid against a powerful boss. Focus on DEF down debuff and sustain. Seer is an excellent F2P champion for this.</p>
-            <p><strong>Doom Tower:</strong> Progressive tower with increasing difficulty. Requires diverse champions. Plan your team comp for each floor. Healers are essential.</p>
-            <p><strong>Faction Wars:</strong> Use champions from specific factions to battle others. Build secondary teams with champions from different factions.</p>
-        </div>
-
-        <div id="resources" class="content-section">
-            <h2>🔗 Useful Resources</h2>
-            <p><strong>Official Game Links:</strong> Download Raid Shadow Legends on <a href="#" style="color: #e74c3c;">iOS or Android</a>. Join official communities and forums.</p>
-            <p><strong>Community Tools:</strong> Many fans have created damage calculators, team builders, and progression guides. Check community forums for recommendations.</p>
-            <p><strong>Gear Main Stats Guide:</strong> Slot 2 is always Speed (except for supports). Slot 4 is Crit Damage or Attack %. Slot 6 depends on role (HP%, Defense%, or Accuracy).</p>
-            <p><strong>Progression Focus:</strong> Month 1: Get to Campaign Nightmare. Month 2: Farm Dragon 20 for gear. Month 3: Add Clan Boss. Month 4+: Start Doom Tower Normal.</p>
-        </div>
+        <!-- Footer -->
+        <footer class="footer">
+            <p>⚔️ Raid Shadow Legends Fan Guide</p>
+            <p class="disclaimer">This is a fan-made resource. Not affiliated with Plarium Games.</p>
+        </footer>
     </div>
 
-    <footer>
-        <p>&copy; 2026 Raid Shadow Legends Fan Guide | <a href="https://github.com/alicethewanderer93-pixel/RaidLegendsGuide">View on GitHub</a></p>
-        <p>This is a fan-made guide and is not affiliated with or endorsed by Plarium Games.</p>
-        <p style="margin-top: 1rem; font-size: 0.9rem;"><strong>F2P Notice:</strong> This guide focuses on free-to-play strategies. While gacha exists, all game content is completable without spending money. Save your currency and farm F2P champions!</p>
-    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
